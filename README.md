@@ -1,4 +1,4 @@
-vagrant-oracle-database-19c
+vagrant-oracle-database-21c
 ===========================
 
 Vagrant + Oracle Linux 7 + Oracle Database 21c (21.3) シングル環境の簡易セットアップ。
