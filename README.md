@@ -1,19 +1,19 @@
 vagrant-oracle-database-21c
 ===========================
 
-Vagrant + Oracle Linux 7 + Oracle Database 21c (21.3) シングル環境の簡易セットアップ。
+Vagrant + Oracle Linux 7 + Oracle Database 21c (21.3) | Simple setup of a single instance database.
 
-ダウンロード
-------------
+Download
+--------
 
-Oracle Database 21c (21.3)のソフトウェアを[Oracle Database Software Downloads](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html)からダウンロードし、Vagrantfileと同じディレクトリに配置。
+Download Oracle Database 21c (21.3) software from [Oracle Database Software Downloads](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html) and place it in the same directory as the Vagrantfile.
 
 * LINUX.X64_213000_db_home.zip
 
-環境変数の設定
---------------
+Set environment variables
+-------------------------
 
-`dotenv.sample`というファイルを`.env`という名前のファイルにコピーし、必要に応じて内容を書き換える。
+Copy the file `dotenv.sample` to a file named `.env` and rewrite the contents as needed.
 
 ```shell
 ORACLE_BASE=/u01/app/oracle
@@ -25,12 +25,12 @@ ORACLE_PDB=pdb1
 ORACLE_SID=orcl
 ```
 
-Vagrant設定
------------
+Vagrant configuration
+---------------------
 
-プロキシを利用する必要がある場合、まずvagrant-proxyconfをインストールし、vagrant-proxyconf用の環境変数を設定しておく。
+If you need to use a proxy, install vagrant-proxyconf and set environment variables for vagrant-proxyconf.
 
-### ホストがmacOS or Linuxの場合 ###
+### If your host is macOS or Linux ###
 
 ```console
 export http_proxy=http://proxy.example.com:80
@@ -43,7 +43,7 @@ export VAGRANT_FTP_PROXY=http://proxy.example.com:80
 export VAGRANT_NO_PROXY=localhost,127.0.0.1
 ```
 
-### ホストがWindowsの場合 ###
+### If your host is Windows ###
 
 ```console
 SET http_proxy=http://proxy.example.com:80
@@ -56,34 +56,34 @@ SET VAGRANT_FTP_PROXY=http://proxy.example.com:80
 SET VAGRANT_NO_PROXY=localhost,127.0.0.1
 ```
 
-セットアップ
-------------
+Vagrant up
+----------
 
-`vagrant up`を実行すると、内部的に以下が動く。
+When you run `vagrant up`, the following will work internally.
 
-* Oracle Linux 7のダウンロードと起動
-* Oracle Preinstallation RPMのインストール
-* ディレクトリの作成
-* 環境変数の設定
-* oracleユーザーのパスワード設定
-* Oracle Databaseのインストール
-* リスナーの作成
-* データベースの作成
+* Download and boot Oracle Linux 7
+* Install Oracle Preinstallation RPM
+* Create directories
+* Set environment variables
+* Set password for oracle user
+* Install Oracle Database
+* Create a listener
+* Create a database
 
 ```console
 vagrant up
 ```
 
-動作確認
---------
+Example of use
+--------------
 
-ゲストOSに接続する。
+Connect to the guest OS.
 
 ```console
 vagrant ssh
 ```
 
-ルートに接続し、接続先を確認する。
+Connect to CDB root and confirm the connection.
 
 ```console
 sudo su - oracle
@@ -91,7 +91,7 @@ sqlplus system/oracle
 SHOW CON_NAME
 ```
 
-PDBに接続、接続先を確認する。
+Connect to PDB, and confirm the connection.
 
 ```console
 sqlplus system/oracle@localhost/pdb1
