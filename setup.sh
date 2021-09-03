@@ -21,7 +21,7 @@ curl -sSL https://git.io/get-mo -o /usr/local/bin/mo
 chmod +x /usr/local/bin/mo
 
 # Install Oracle Preinstallation RPM
-yum -y install oracle-database-preinstall-19c
+yum -y install oracle-database-preinstall-21c
 
 # Create directories
 mkdir -p "$ORACLE_HOME"
