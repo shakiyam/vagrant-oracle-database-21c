@@ -19,7 +19,7 @@ Copy the file `dotenv.sample` to a file named `.env` and rewrite the contents as
 ORACLE_BASE=/u01/app/oracle
 ORACLE_CHARACTERSET=AL32UTF8
 ORACLE_EDITION=EE
-ORACLE_HOME=/u01/app/oracle/product/21.0.0/dbhome_1
+ORACLE_HOME=/u01/app/oracle/product/21.3.0/dbhome_1
 ORACLE_PASSWORD=oracle
 ORACLE_PDB=pdb1
 ORACLE_SID=orcl
